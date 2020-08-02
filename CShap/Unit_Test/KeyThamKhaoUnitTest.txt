@@ -1,0 +1,470 @@
+Nguồn :  @manhnguyenv
+Web : https://manhng.com/blog/unit-testing/
+
+Kinh nghiệm viết và sử dụng Unit Test (Unit Testing)
+August 15, 2018 09:24
+
+
+Kinh nghiệm sử dụng Unit Test (edit)
+Chú ý: Phải cài bản Visual Studio Enterprise 2017 thì mới có thể viết Unit Test
+
+https://github.com/manhnguyenv/UnitAndIntegrationTestingDemo
+
+https://github.com/manhnguyenv/MvcIntegrationTestFramework
+
+https://github.com/manhnguyenv/aout2
+
+Frameworks:
+xUnit: https://github.com/xunit/xunit 
+Fluent Assertions: https://github.com/dennisdoomen/fluentassertions 
+Moq: https://github.com/Moq/moq 
+Fluent Automation: https://github.com/stirno/FluentAutomation 
+
+Tools:
+NCrunch: http://www.ncrunch.net 
+Resharper: https://www.jetbrains.com/resharper 
+Visual Studio Community: https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx
+
+
+
+
+
+Một số khái niệm, định nghĩa, kiến thức cần hiểu:
+
+QA, Tester chỉ có thể kiểm thử hộp đen, Developer viết test là để kiểm thử hộp trắng
+
+Unit test không phải dùng để tìm bug
+
+Test Driven Development (TDD) là một quá trình thiết kế, chứ không phải là một quá trình kiểm thử
+
++ Dependency Injection
++ Mock
++ Fake
++ Stub
++ Agile
++ TDD
++ Dummy (optional)
+
+Entity Framework Testing with a Mocking Framework (EF6 onwards)
+https://msdn.microsoft.com/en-us/library/dn314429(v=vs.113).aspx
+
+Unit Test dùng để làm gì và kinh nghiệm viết Unit Test tốt nhất
+https://techmaster.vn/posts/33618/unit-test-dung-de-lam-gi-va-kinh-nghiem-viet-unit-test-tot-nhat
+
+http://www.pcworld.com.vn/articles/cong-nghe/cong-nghe/2005/12/1188434/unit-test-voi-phat-trien-phan-mem-hien-dai/
+
+Kinh nghiệm viết Unit Test hiệu quả:
+1) Hãy làm cho mỗi test độc lập với tất cả những phần khác
++ Đừng làm những assertion không cần thiết
++ Kiểm thử chỉ một unit code tại một thời điểm
++ Giả lập tất cả những dịch vụ và trạng thái bên ngoài
++ Tránh những điều kiện tiên quyết không cần thiết
+2) Đừng sử dụng unit test trong phần thiết lập cấu hình
+3) Đặt tên các unit test của bạn một cách rõ ràng và nhất quán
+Đối tượng: Arrange
+Kịch bản: Act
+Kết quả: Assert
+
+Case 1: Không mock được hàm public abstract void Open() trong context.Database.Connection trong Entity Framework
+Solution: Chuyển sang INTEGRATION TEST bằng cách đánh dấu ở đầu method: [TestCategory("INTEGRATION")]
+
+Case 2: FakeDbSet...
+    _mockContext.Setup(m => m.Set<OpportunityArea>()).Returns(new FakeDbSet<OpportunityArea>() { });
+
+http://blog.brentmckendrick.com/generic-repository-fake-idbset-implementation-update-find-method-identity-key/
+
+https://github.com/khalidabuhakmeh/NoRepositories (HAY)
+
+http://qaru.site/questions/111916/mocking-ef-dbcontext-with-moq (HAY)
+
+https://gist.github.com/LukeWinikates/1309447
+
+https://gist.github.com/rally25rs/1492134
+
+https://www.jerriepelser.com/blog/unit-testing-with-fake-dbset-nbuilder/
+
+Case 3: Microsoft Fakes (Shims)
+    using (ShimsContext.Create())
+    {
+        //Fake GetOpportunityAreaById(Int32 i)
+        ShimOpportunityAreaManager.AllInstances.GetOpportunityAreaByIdInt32 =
+        (oam, i) =>
+        {
+            return opportunityArea3;
+        };
+        ......................
+        OpportunityAreaViewModel newOpportunityArea = opportunityAreaManager.CreateOpportunityArea(opportunityArea3);
+        _mockContext.Verify(x => x.SaveChanges(), Times.Once());
+}
+
+Unit Test với phát triển phần mềm hiện đại
+Unit Test (UT) là một kỹ thuật quan trọng góp phần nâng cao chất lượng phần mềm (PM), nhưng có nhiều quan điểm trái ngược nhau về việc đưa UT vào quy trình phát triển PM.
+Bài viết này giới thiệu một cái nhìn tổng quan về UT và mô hình phát triển phần mềm hiện đại TDD (Test-Driven Development).
+
+UNIT TEST
+
+UT là kỹ thuật kiểm nghiệm các hoạt động của mọi chi tiết mã (code) với một quy trình tách biệt với quy trình phát triển PM, giúp phát hiện sai sót kịp thời.
+UT còn có thể giúp phát hiện các vấn đề tiềm ẩn và các lỗi thời gian thực ngay cả trước khi chuyên viên kiểm định chất lượng (QA - Quality Assurance) tìm ra,
+ thậm chí có thể sửa lỗi ngay từ ý tưởng thiết kế.
+
+UT là các đoạn mã có cấu trúc giống như các đối tượng được xây dựng để kiểm tra từng bộ phận trong hệ thống. Mỗi UT sẽ gửi đi một thông điệp và kiểm tra 
+câu trả lời nhận được đúng hay không, bao gồm: 
+
+• Các kết quả trả về mong muốn
+
+• Các lỗi ngoại lệ mong muốn
+
+Các đoạn mã UT hoạt động liên tục hoặc định kỳ để thăm dò và phát hiện các lỗi kỹ thuật trong suốt quá trình phát triển, do đó UT còn được gọi là kỹ thuật kiểm nghiệm tự động.
+
+UT có các đặc điểm sau:
+
+• Đóng vai trò như những người sử dụng đầu tiên của hệ thống.
+
+• Chỉ có giá trị khi chúng có thể phát hiện các vấn đề tiềm ẩn hoặc lỗi kỹ thuật.
+
+Vòng đời của UT
+
+ 
+
+ 
+
+Một thí dụ trong NUnit. Nút xanh thể hiện các trạng thái "pass", nút đỏ ứng với trạng thái "fail" và nút vàng ứng với trạng thái "ignore".
+ 
+
+UT có 3 trạng thái cơ bản:
+
+• Fail (trạng thái lỗi)
+
+• Ignore (tạm ngừng thực hiện)
+
+• Pass (trạng thái làm việc)
+
+Toàn bộ UT được vận hành trong một hệ thống tách biệt. Có rất nhiều PM hỗ trợ thực thi UT với giao diện trực quan. 
+Thông thường, trạng thái của UT được biểu hiện bằng các màu khác nhau: màu xanh (pass), màu vàng (ignore) và màu đỏ (fail).
+
+UT chỉ thực sự đem lại hiệu quả khi:
+
+• Được vận hành lặp lại nhiều lần
+
+• Tự động hoàn toàn
+
+• Độc lập với các UT khác.
+
+Thiết kế UT
+
+Mỗi UT đều được tiết kế theo trình tự sau:
+
+• Thiết lập các điều kiện cần thiết: khởi tạo các đối tượng, xác định tài nguyên cần thiết, xây dựng các dữ liệu giả...
+
+• Triệu gọi các phương thức cần kiểm tra.
+
+• Kiểm tra sự hoạt động đúng đắn của các phương thức.
+
+• Dọn dẹp tài nguyên sau khi kết thúc kiểm tra.
+
+Ứng dụng của UT
+
+• Kiểm tra mọi đơn vị nhỏ nhất là các thuộc tính, sự kiện, thủ tục và hàm. 
+
+• Kiểm tra các trạng thái và ràng buộc của đối tượng ở các mức sâu hơn mà thông thường chúng ta không thể truy cập được.
+
+• Kiểm tra các quy trình (process) và mở rộng hơn là các khung làm việc(workflow - tập hợp của nhiều quy trình).
+
+Lợi ích của UT
+
+Thời gian đầu, người ta thường do dự khi phải viết UT thay vì tập trung vào viết mã cho các chức năng nghiệp vụ. 
+Công việc viết UT có thể ngốn nhiều thời gian, yuy nhiên UT đem lại lợi ích to lớn như:
+
+• Tạo ra môi trường lý tưởng để kiểm tra bất kỳ đoạn mã nào, có khả năng thăm dò và phát hiện lỗi chính xác,
+ duy trì sự ổn định của toàn bộ PM và giúp tiết kiệm thời gian so với công việc gỡ rối truyền thống.
+
+• Phát hiện các thuật toán thực thi không hiệu quả, các thủ tục chạy vượt quá giới hạn thời gian.
+
+• Phát hiện các vấn đề về thiết kế, xử lý hệ thống, thậm chí các mô hình thiết kế.
+
+• Phát hiện các lỗi nghiêm trọng có thể xảy ra trong những tình huống rất hẹp.
+
+• Tạo hàng rào an toàn cho các khối mã: Bất kỳ sự thay đổi nào cũng có thể tác động đến hàng rào này và thông báo những nguy hiểm tiềm tàng.
+
+ 
+
+UT tạo thành hàng rào an toàn cho mã ứng dụng
+ 
+
+ 
+• UT là môi trường lý tưởng để tiếp cận các thư viện API bên ngoài một cách tốt nhất.
+Sẽ rất nguy hiểm nếu chúng ta ứng dụng ngay các thư viện này mà không kiểm tra kỹ lưỡng công dụng của các thủ tục trong thư viện.
+ Dành ra thời gian viết UT kiểm tra từng thủ tục là phương pháp tốt nhất để khẳng định sự hiểu đúng đắn về cách sử dụng thư viện đó.
+  Ngoài ra, UT cũng được sử dụng để phát hiện sự khác biệt giữa phiên bản mới và phiên bản cũ của cùng một thư viện. 
+
+Trong môi trường làm việc cạnh tranh, UT còn có tác dụng rất lớn đến năng suất làm việc:
+
+• Giải phóng chuyên viên QA khỏi các công việc kiểm tra phức tạp.
+
+• Tăng sự tự tin khi hoàn thành một công việc. Chúng ta thường có cảm giác không chắc chắn về các đoạn mã của mình như liệu các lỗi có quay lại không,
+ hoạt động của module hiện hành có bị tác động không, hoặc liệu công việc hiệu chỉnh mã có gây hư hỏng đâu đó... 
+
+• Là công cụ đánh giá năng lực của bạn. Số lượng các tình huống kiểm tra (test case) chuyển trạng thái "pass" sẽ thể hiện tốc độ làm việc,
+ năng suất của bạn.
+
+Chiến lược viết mã hiệu quả với UT
+
+• Phân tích các tình huống có thể xảy ra đối với mã. Đừng bỏ qua các tình huống tồi tệ nhất có thể xảy ra, 
+thí dụ dữ liệu nhập làm một kết nối cơ sở dữ liệu thất bại, ứng dụng bị treo vì một phép toán chia cho không, 
+các thủ tục đưa ra lỗi ngoại lệ sai có thể phá hỏng ứng dụng một cách bí ẩn...
+
+• Mọi UT phải bắt đầu với trạng thái "fail" và chuyển trạng thái "pass" sau một số thay đổi hợp lý đối với mã chính. 
+
+• Mỗi khi viết một đoạn mã quan trọng, hãy viết các UT tương ứng cho đến khi bạn không thể nghĩ thêm tình huống nào nữa.
+
+• Nhập một số lượng đủ lớn các giá trị đầu vào để phát hiện điểm yếu của mã theo nguyên tắc:
+
+- Nếu nhập giá trị đầu vào hợp lệ thì kết quả trả về cũng phải hợp lệ
+
+- Nếu nhập giá trị đầu vào không hợp lệ thì kết quả trả về phải không hợp lệ
+
+• Sớm nhận biết các đoạn mã không ổn định và có nguy cơ gây lỗi cao, viết UT tương ứng để khống chế.
+
+• Ứng với mỗi đối tượng nghiệp vụ (business object) hoặc đối tượng truy cập dữ liệu (data access object), 
+nên tạo ra một lớp kiểm tra riêng vì những lỗi nghiêm trọng có thể phát sinh từ các đối tượng này.
+
+• Để ngăn chặn các lỗi có thể phát sinh trở lại thực thi tự động tất cả UT mỗi khi có một sự thay đổi quan trọng, 
+hãy làm công việc này mỗi ngày. Các UT lỗi cho chúng ta biết thay đổi nào là nguyên nhân gây lỗi.
+
+• Để tăng hiệu quả và giảm rủi ro khi viết các UT, cần sử dụng nhiều phương thức kiểm tra khác nhau. Hãy viết càng đơn giản càng tốt.
+
+• Cuối cùng, viết UT cũng đòi hỏi sự nỗ lực, kinh nghiệm và sự sáng tạo như viết PM. 
+
+Trước khi kết thúc phần này, chúng tôi có một lời khuyên là viết UT cũng tương tự như viết mã một chương trình,
+ điều bạn cần làm là không ngừng thực hành. Hãy nhớ UT chỉ thực sự mang lại lợi ích nếu chúng ta đặt vấn đề chất lượng phần mềm lên hàng đầu 
+ hơn là chỉ nhằm kết thúc công việc đúng thời hạn. Khi đã thành thạo với công việc viết UT, bạn có thể đọc thêm về các kỹ thuật xây dựng UT 
+ phức tạp hơn, trong số đó có mô hình đối tượng ảo sẽ được trình bày trong phần tiếp theo.
+
+UT tương tác với cả đối tượng ảo và đối tượng thực
+ 
+
+XÂY DỰNG UT VỚI MÔ HÌNH ĐỐI TƯỢNG ẢO (MOCK OBJECT)
+
+Trong UT, mỗi một đối tượng hay một phương thức riêng lẻ được kiểm tra tại một thời điểm và chúng ta chỉ quan tâm đến 
+các trách nhiệm của chúng có được thực hiện đúng hay không. Tuy nhiên trong các dự án PM phức tạp thì UT không còn là quy trình riêng lẻ,
+ nhiều đối tượng (đơn vị chương trình) không làm việc độc lập mà tương tác với các đối tượng khác như kết nối mạng, 
+ cơ sở dữ liệu hay dịch vụ web. Như vậy công việc kiểm nghiệm có thể bị trì hoãn gây tác động xấu đến quy trình phát triển chung. 
+ Để giải quyết các vấn đề này người ta đưa ra mô hình "Mock Object" hay đối tượng ảo (hoặc đối tượng giả).
+
+Định nghĩa
+
+Mock object (MO) là một đối tượng ảo mô phỏng các tính chất và hành vi giống hệt như đối tượng thực được truyền vào bên trong khối mã 
+đang vận hành nhằm kiểm tra tính đúng đắn của các hoạt động bên trong.
+
+Đặc điểm 
+
+• Đơn giản hơn đối tượng thực nhưng vẫn giữ được sự tương tác với các đối tượng khác.
+
+• Không lặp lại nội dung đối tượng thực.
+
+• Cho phép thiết lập các trạng thái riêng trợ giúp kiểm tra.
+
+Lợi ích 
+
+• Đảm bảo công việc kiểm nghiệm không bị gián đoạn bởi các yếu tố bên ngoài, giúp các chuyên viên tập trung vào một chức năng nghiệp vụ cụ thể, 
+từ đó tạo ra UT vận hành nhanh hơn.
+
+• Giúp tiếp cận hướng đối tượng tốt hơn. Nhờ MO chúng ta có thể phát hiện interface cần tách ở một số lớp.
+
+• Dễ dàng cho việc kiểm nghiệm. Thay vì gọi các đối tượng thực vận hành nặng nề, 
+chúng ta có thể gọi các MO đơn giản hơn để kiểm tra nhanh liên kết giữa các thủ tục, công việc kiểm nghiệm có thể tiến hành nhanh hơn.
+
+Phạm vi sử dụng
+
+MO được sử dụng trong các trường hợp sau:
+
+• Cần lập trạng thái giả của một đối tượng thực trước khi các UT có liên quan được đưa vào vận hành (thí dụ kết nối cơ sở dữ liệu, giả định trạng thái lỗi server...)
+
+• Cần lập trạng thái cần thiết cho một số tính chất nào đó của đối tượng đã bị khoá quyền truy cập (các biến, thủ tục, hàm, thuộc tính riêng được khai báo private).
+ Không phải lúc nào các tính chất của một đối tượng cũng có thể được mở rộng phạm vi truy cập ra bên ngoài vì điều này có thể trực tiếp phá vỡ liên kết giữa các phương thức theo một trình tự sắp đặt trước,
+  từ đó dẫn đến kết quả có thể bị xử lý sai. Tuy nhiên, MO có thể thiết lập các trạng thái giả mà vẫn đảm bảo các yêu cầu ràng buộc, 
+  các nguyên tắc đúng đắn và các quan hệ của đối tượng thực.
+
+• Cần kiểm tra một số thủ tục hoặc các biến của thành viên bị hạn chế truy cập. 
+Bằng cách kế thừa MO từ đối tượng thực chúng ta có thể kiểm tra các thành viên đã được bảo vệ (khai báo protected).
+
+• Cần loại bỏ các hiệu ứng phụ của một đối tượng nào đó không liên quan đến UT.
+
+• Cần kiểm nghiệm mã vận hành có tương tác với hệ thống bên ngoài. 
+
+Các dạng đối tượng được mô phỏng
+
+MO mô phỏng các loại đối tượng sau đây:
+
+• Các đối tượng thực mới chỉ được mô tả trên bản thiết kế nhưng chưa tồn tại dưới dạng mã, 
+hoặc các module chưa sẵn sàng cung cấp các dữ liệu cần thiết để vận hành UT. 
+
+• Các đối tượng thực có các thủ tục chưa xác định rõ ràng về mặt nội dung (mới chỉ mô tả trong interface) 
+nhưng được đòi hỏi sử dụng gấp trong các UT.
+
+• Các đối tượng thực rất khó cài đặt (thí dụ đối tượng xử lý các trạng thái của server) 
+
+• Các đối tượng thực xử lý một tình huống khó xảy ra. Thí dụ lỗi kết nối mạng, lỗi ổ cứng... 
+
+• Các đối tượng có các tính chất và hành vi phức tạp, các trạng thái luôn thay đổi và các quan hệ chặt chẽ với nhiều đối tượng khác
+
+• Các đối tượng vận hành chậm chạp. Công việc kiểm tra hiện hành không liên quan đến thao tác xử lý đối tượng này.
+
+• Đối tượng thực liên quan đến giao diện tương tác người dùng. 
+Không người dùng nào có thể ngồi kiểm nghiệm các chức năng hộ bạn hết ngày này qua ngày khác. 
+Tuy nhiên bạn có thể dùng MO để mô phỏng thao tác của người dùng, nhờ đó công việc có thể được diễn biến lặp lại và hoàn toàn tự động.
+
+Thiết kế MO
+
+Thông thường, nếu số lượng MO không nhiều, chúng ta có thể tự thiết kế. Nếu không muốn mất nhiều thời gian tự thiết kế một số lượng lớn MO, 
+bạn có thể tải về các công cụ có sẵn thông dụng hiện nay như EasyMock, jMock, Nmock... 
+Các phần mềm này cung cấp nhiều API cho phép xây dựng MO và các kho dữ liệu giả dễ dàng hơn, cũng như kiểm tra tự động các số liệu trong UT. 
+Nói chung, việc thiết kế MO gồm 3 bước chính sau đây:
+
+1. Đưa ra interface để mô tả đối tượng. Tất cả các tính chất và thủ tục quan trọng cần kiểm tra phải được mô tả trong interface.
+
+2. Viết nội dung cho đối tượng thực dựa trên interface như thông thường. 
+
+3. Trích interface từ đối tượng thực và triển khai MO dựa trên interface đó. 
+
+Lưu ý MO phải được đưa vào quy trình kiểm nghiệm tách biệt. Cách này có thể sinh ra nhiều interface không thực sự cần thiết, 
+có thể làm cho thiết kế ứng dụng trở nên phức tạp. Một cách làm khác là kế thừa một đối tượng đang tồn tại và 
+cố gắng mô phỏng các hành vi càng đơn giản càng tốt, như trả về một dữ liệu giả chẳng hạn. 
+Đặc biệt tránh tạo ra những liên kết mắt xích giữa các MO vì chúng có thể làm cho thiết kế UT trở nên phức tạp.
+
+TEST-DRIVEN DEVELOPMENT
+
+Trong những năm gần đây, khái niệm TDD được đưa ra dựa trên mô hình phát triển PM khá nổi tiếng XP (Extreme Programming). 
+TDD là một chiến lược phát triển sử dụng kỹ thuật UT theo nguyên tắc tạo ra các công đoạn kiểm nghiệm trước khi xây dựng mã.
+
+Ý tưởng chính của TDD: Trước khi bạn bắt tay viết mã, hãy nghĩ về những gì phải làm trước. 
+Không giống như lập trình truyền thống, trong TDD chúng ta viết mã kiểm tra trước khi viết mã chính, 
+chỉ được viết sau khi đạt đủ số lượng UT cần thiết cho các tình huống có thể xảy ra.
+
+Có thể hiểu TDD là một quy trình vòng tròn bắt đầu bởi các UT với trạng thái đầu tiên là "fail", 
+tiếp theo cần viết mã để các UT chuyển trạng thái "pass", và cuối cùng hiệu chỉnh mã cho đơn giản hơn. 
+Quy trình này được tái diễn liên tục đối với mọi đơn vị chương trình cho đến khi kết thúc hoàn toàn dự án.
+
+Đặc điểm
+
+• Là quy trình phát triển tăng dần theo kịch bản và gắn chặt với các công đoạn kiểm nghiệm trước khi đưa ứng dụng vào vận hành thực sự. 
+
+• Là phương pháp phát triển PM ở đó áp dụng kỹ thuật UT tiến hành kiểm tra tất cả các interface, 
+tạo ra các MO cần thiết mô phỏng sự vận hành của ứng dụng ở một nơi riêng biệt. 
+
+• Tạo ra bộ khung vận hành tự động cho tất cả các thao tác kiểm nghiệm bộ phận trong hệ thống mỗi khi xây dựng một phiên bản mới. 
+
+Lợi ích
+
+• TDD là một kỹ thuật giúp định hình ý tưởng thiết kế hơn là kiểm nghiệm mã chương trình. 
+Thực hiện theo TDD sẽ làm sáng tỏ thêm các yêu cầu bài toán, 
+giải tỏa sự bế tắc trong khi đi tìm giải pháp, phát hiện sớm các vấn đề về thiết kế và tránh được những công việc phải làm lại. 
+
+• TDD là một phần bổ trợ không thể thiếu trong các công việc lập trình theo nhóm nhỏ, 
+thường là hai người cùng phát triển một module. Trong mô hình này, luân phiên một người có nhiệm vụ nghĩ về tình huống kiểm tra tiếp theo, 
+viết UT cho tình huống và các MO cần thiết. Người còn lại tập trung viết mã để các UT chuyển sang trạng thái "pass"; giúp giảm thiểu lỗi so 
+với khi làm việc độc lập.
+
+• TDD định hướng cho nhóm thiết kế vận dụng tốt các phương pháp hướng đối tượng (các đối tượng cần kiểm tra phải thực thi một interface là 
+một thí dụ), đặc biệt có thể thu được thiết kế tốt theo hai nguyên tắc:
+
+- Loosely-Coupled: Bất kỳ sự thay đổi nào cũng đều không ảnh hưởng đến các đối tượng khác.
+
+- Highly-Cohesive: Có tính chất khép kín theo nghĩa chỉ thực hiện những chức năng gần với nhau về mặt nghiệp vụ và thiết kế, đồng thời loại
+ ra những chức năng ít có liên quan đến các chức năng chính. 
+
+• Lợi ích quan trọng cuối cùng của TDD là xây dựng các đoạn mã chất lượng và an toàn, tập trung hơn, giảm phân mảnh mã và giảm rủi ro xảy ra 
+ngoài dự kiến. 
+
+Trong TDD, càng nhiều UT được tạo ra thì càng có nhiều khả năng khống chế nhanh chóng các lỗi nghiêm trọng xảy ra. Các UT càng "mịn" theo 
+nghĩa không thể chia nhỏ hoặc không thể bổ sung được nữa thì khả năng đáp ứng yêu cầu kiểm nghiệm càng cao. Khi đã thiết kế đủ các UT có khả 
+năng phát hiện chính xác bất kỳ một lỗi kỹ thuật nào, chúng ta có thể yên tâm chuyển giao module cho chuyên viên QA kiểm định chức năng 
+(functional testing). Tuy nhiên trong suốt giai đoạn phát triển sau đó cần kiểm tra định kỳ các trạng thái của UT để đảm bảo việc cập nhật
+ không phá vỡ tính đúng đắn của các đoạn mã cũ.
+
+Quy trình thực hiện
+
+Trình tự thực hiện trong TDD như sau:
+
+1. Đối với một module, nghĩ về các công việc sẽ làm và cách kiểm tra công việc đó như thế nào. 
+
+2. Tạo test suite ứng với module đó.
+
+3. Bắt tay thiết kế sơ bộ tất cả các UT có thể nghĩ ra. Bước này thực chất là thu thập các tình huống có thể phát hiện lỗi vào một danh 
+sách công việc cần kiểm nghiệm. 
+
+4. Viết mã để đảm bảo các UT được biên dịch.
+
+5. Thực thi các UT, vì mã chính của module chưa tồn tại nên trạng thái là "fail". 
+
+6. Viết mã cho module để thay đổi trạng thái UT, có thể bổ sung UT nếu cần thiết.
+
+7. Chạy lại toàn bộ test suite và quan sát các UT lỗi, lặp lại bước 6-7 cho đến khi tất cả UT đều đạt trạng thái "pass".
+
+8. Hiệu chỉnh mã để loại bỏ các phần lặp lại, các khối mã và các phân nhánh, liên kết thiếu hợp lý hoặc các khối mã không còn hoạt động... 
+đồng thời viết chú giải các phần quan trọng. Hãy thực hiện công việc này thường xuyên vì chúng ta sẽ không có thời gian quay lại cho công việc
+ hiệu chỉnh. 
+
+Bước cuối cùng có ý nghĩa rất lớn trong việc giảm sự phụ thuộc vào các module khác và gia tăng sự độc lập về mặt nghiệp vụ của module hiện hành. 
+Cần lưu ý kiểm tra lại trạng thái tất cả các UT sau mỗi lần hiệu chỉnh vì rất có thể công việc này sẽ gây ra lỗi ở đâu đó.
+
+Chiến lược phát triển với TDD
+
+Mỗi công ty PM đều có cách điều hành quản lý phát triển PM khác nhau, nhưng tất cả đều có chung một mục đích là giảm số lỗi xuống mức nhỏ nhất
+ có thể và khống chế lỗi phát sinh trở lại. Tuy nhiên nhìn chung một quy trình phát triển PM lý tưởng không thể thiếu các bước quan trọng sau 
+ đây:
+
+• Thiết kế một dự án thử nghiệm riêng, độc lập, tách biệt với khu vực phát triển. Không gắn dự án thử nghiệm đó vào phiên bản sản phẩm được 
+giao cho khách hàng, vì điều này có thể làm tăng kích thước sản phẩm. 
+
+• Xây dựng một cơ sở dữ liệu các test suite cho mọi module phục vụ việc kiểm nghiệm cả hai khía cạnh phát triển và chức năng.
+
+• Chia nhỏ dự án ra nhiều quy trình nhỏ hơn dựa trên ngữ cảnh, giúp việc viết UT được dễ dàng hơn. Để kiểm tra hiệu quả của toàn bộ ứng dụng,
+ tốt nhất là kiểm tra hiệu quả của mọi đơn vị mã nhỏ nhất.
+
+• Có thể thiết lập các cơ sở dữ liệu riêng cho dự án thử nghiệm lưu trữ tất cả các giá trị đầu vào và các kết quả trả về mong muốn... XML sẽ
+ là cách tiếp cận tốt nhất cho những cơ sở dữ liệu loại này. 
+
+• Tích hợp công việc kiểm nghiệm thành một phần trong quy trình tự động hoá quản lý mã nguồn như tích hợp toàn bộ công việc, biên dịch vào 
+cuối ngày làm việc... Mỗi một công việc như vậy được gọi là một "build". Về quy trình này có thể tham khảo ứng dụng nguồn mở Ant trong Java (hoặc NAnt cho .NET), hay các công cụ thương mại như CruiseControl hoặc Anthill.
+
+• Cuối cùng thay vì kiểm nghiệm bằng tay, hãy để máy tính thực hiện tự động và gửi báo cáo cho bạn. Các thông báo email tự động hàng ngày 
+về tình trạng của các UT sẽ luôn đảm bảo cho dự án thông suốt. Tất cả các công việc này có thể được tiến hành trên một máy tính riêng có khả năng kiểm soát các thay đổi mã nguồn. 
+
+LỜI KẾT
+
+UT là một phương pháp hỗ trợ phát triển PM đang được áp dụng và vẫn đang được hoàn thiện. Kết hợp UT với chiến lược phát triển TDD sẽ giúp 
+bạn xây dựng được các PM chất lượng và ổn định.
+
+ 	
+CÁC THUẬT NGỮ TRONG UNIT TESTING
+
+ 
+ 	
+•Assertion: Là một phát biểu mô tả các công việc kiểm tra cần tiến hành, thí dụ: AreEqual(), IsTrue(), IsNotNull()... Mỗi một UT gồm nhiều
+ assertion kiểm tra dữ liệu đầu ra, tính chính xác của các lỗi ngoại lệ ra và các vấn đề phức tạp khác như:
+- Sự tồn tại của một đối tượng
+- Điều kiện biên: Các giá trị có vượt ra ngoài giới hạn hay không
+- Thứ tự thực hiện của các luồng dữ liệu
+...
+• Test Point: Là một đơn vị kiểm tra nhỏ nhất, chỉ chứa đơn giản một assertion nhằm khẳng định tính đúng đắn của một chi tiết mã nào đó. 
+Mọi thành viên dự án đều có thể viết một test point.
+• Test Case: Là một tập hợp các test point nhằm kiểm tra một đặc điểm chức năng cụ thể, thí dụ toàn bộ giai đoạn người dùng nhập dữ liệu 
+cho đến khi thông tin được nhập vào cơ sở dữ liệu. Trong nhiều trường hợp kiểm tra đặc biệt và khẩn cấp có thể không cần đến test case.
+• Test Suite: Là một tập hợp các test case định nghĩa cho từng module hoặc hệ thống con. 
+• Regression Testing (hoặc Automated Testing): Là phương pháp kiểm nghiệm tự động sử dụng một phần mềm đặc biệt. Cùng một loại dữ liệu 
+kiểm tra giống nhau nhưng được tiến hành nhiều lần lặp lại tự động nhằm ngăn chặn các lỗi cũ phát sinh trở lại. Kết hợp Regression 
+Testing với Unit Testing sẽ đảm bảo các đoạn mã mới vẫn đáp ứng yêu cầu thay đổi và các đoạn mã cũ sẽ không bị ảnh hưởng bởi các hoạt động 
+bảo trì. 
+• Production Code: Phần mã chính của ứng dụng được chuyển giao cho khách hàng.
+• Unit Testing Code: Phần mã phụ để kiểm tra mã ứng dụng chính, không được chuyển giao cho khách hàng.
+
+ 
+Phạm Đình Trường
+Email: phdtruong@yahoo.com
+
+Tài liệu tham khảo
+• http://www.codeproject.com/gen/design/FirstUnitTest.asp
+• http://www.javaworld.com/javaworld/jw-05-2004/jw-0510-tdd.html
+• http://www.javaworld.com/javaworld/jw-03-2005/jw-0307-testing.html
+• http://xprogramming.com/software.htm
