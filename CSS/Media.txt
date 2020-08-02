@@ -1,0 +1,51 @@
+@media CSS là một tính năng mới của CSS3, tính năng này cho phép ta tùy chỉnh CSS cho nhiều thiết bị khác nhau
+từ máy tính cho đến điện thoại smart phone và các thiết bị in ấn.
+Thuộc tính này có cú pháp như sau:
+
+Trong đó mediatype gồm các thuộc tính hay sử dụng sau:
+@media not|only mediatype and (media feature) {
+    CSS-Code;
+}
+all: Dùng cho tất cả thiết bị
+print: Dùng cho máy in
+screen: Dùng cho máy tính và các thiết bị smart phone
+Device: Là thiết bị sử dụng website như Laptop, Desktop, Iphone, ..
+Viewport: Là kích thước hiển thị của giao diện.
+Và media featured thì gồm các thuộc tính sau:
+aspect-ratio: Tỉ lệ giữa chiều rộng và chiều cao của viewport
+min-aspect-ratio: Tỉ lệ tối thiểu giữa chiều rộng và chiều cao của viewport
+max-aspect-ratio: Tỉ lệ tôi đa giữa chiều rộng và chiều cao của viewport
+color: Số bits cho mỗi màu sắc của device
+color-index: Số lượng màu sắc mà device có thể hiển thị
+device-aspect-ratio: Tỉ lệ giữa chiều rộng và chiều cao của device
+max-device-aspect-ratio: Tỉ lệ tối đa giữa chiều rộng và chiều cao của device
+min-device-aspect-ratio: Tỉ lệ tối thiểu giữa chiều rộng và chiều cao của device
+device-height: Chiều cao của device 
+device-width: Chiều rộng của device
+height: Chiều cao của viewport
+width: Chiều rộng của viewport
+max-width: Chiều rộng tối đa của viewport
+min-width: Chiều rộng tối thiểu của viewport
+max-height: Chiều cao tối đa của viewport
+min-height: Chiều cao tối thiểu của viewport
+min-device-width: Chiều rộng tối thiểu của device
+max-device-width: Chiều rộng tối đa của device
+min-device-height: Chiều cao tối thiểu của device
+max-device-height: Chiều cao tối đa của device
+orientation: Định hướng của khung nhìn 
+resolution: Độ phân giải của thiết bị đầu ra 
+https://www.mydevice.io/#compare-devices
+vào đây xem nhé các con zợ
+
+các bộ thường mk dùng : 
+do độ lười đạt đến cảnh giơi thượng thùa nên mk chỉ dùng cái này thyoi
+@media only screen and (max-width: 480px) and (min-width: 320px){
+    code css
+}
+max-width: 320px (điện thoại di động, hiển thị chiều dọc)
+max-width: 480px (điện thoại di động, hiển thị chiều ngang)
+max-width: 600px (máy tính bảng, hiển thị chiều dọc)
+max-width: 800px (máy tính bảng, hiển thị chiều ngang)
+max-width: 768px (máy tính bảng loại to, hiển thị chiều dọc)
+max-width: 1024px (máy tính bảng loại to, hiển thị chiều ngang)
+min-width: 1025px (từ size này trở lên là danh cho desktop thông thường)
