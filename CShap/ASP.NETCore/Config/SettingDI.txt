@@ -1,0 +1,68 @@
+ok vấn đề ngày hôm nay là , có đôi lúc chúng ta có cả trăm cái DI 
+thậm trí là cả ngàn cái cả vạn cái mà như chúng ta đã biết
+file setup.cs của asp.net core thì một file mà chúng ta tìm mỏi cả con mắt 
+kéo mỏi cả đôi tay hư bố cả vài con chuột mới đến dk phần đáy đúng ko nào ,
+ vậy chúng ta cần làm cái khỉ gì để có thể giải quyết vấn đề này ,
+  chắc hẳng ai cx nghĩ là phải tách cái thằng bụng phệ này ra khỏi file setup.cs đúng ko 
+
+
+BẮT ĐẦU NHÉ
+
+đầu tiên tạo 1 foder ở trên phần web của chúng ta => InstallerConfigurations
+trong này cài 3 file nữa cho mk :
++ DIInstall.cs (1)
++ IInstaller.cs (2)
++ InstallerExtensions.cs (3)
+
+
+cài các file nào 
+
+(1)  
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+   public class DIInstall : IInstaller
+    {
+        public void InstallService(IServiceCollection services, IConfiguration configuration)
+        {
+            //services.AddTransient<IInfomationUserCreate, CreateInfomationUserReposetory>();
+            //services.AddTransient<IdentitySevice, RdentitySevice>();
+        }
+    }
+
+(2)
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+public interface IInstaller
+    {
+        void InstallService(IServiceCollection services, IConfiguration configuration);
+    }
+
+
+(3)
+
+using System;
+using System.Linq;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+public static class InstallerExtensions
+    {
+        public static void InstallServicesInAssembly(this IServiceCollection services, IConfiguration configuration)
+        {
+            var installers = typeof(Startup).Assembly.ExportedTypes
+              .Where(x => typeof(IInstaller).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
+              .Select(Activator.CreateInstance)
+              .Cast<IInstaller>()
+              .ToList();
+
+            installers.ForEach(ins => ins.InstallService(services, configuration));
+        }
+    }
+
+ok con dê , chúng ta thịt dê nào 
+
+từ Startup.cs chúng ta tìm đến ConfigureServices
+ ui cuối cùng cũng sắp xong  add cái này vào nhé : services.InstallServicesInAssembly(Configuration);
+
+ => chúng bạn thành công

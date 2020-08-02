@@ -1,0 +1,28 @@
+public  class PLogin
+    {
+        public  string a{ get; set; }
+        public  string b { get; set; }
+        public  bool c { get; set; }
+    }
++> Tạo ra một class để lưu data
+
+=> html
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using ShopSapphire.Infratructure.Parameter
+@model PLogin
+
+<form id="login"  action="LoginUserPost"  method="post" class="input-group">
+                <input  asp-for="a" type="text" class="input-field" placeholder="Tài Khoản" required>
+                <input  asp-for="b" type="text" class="input-field" placeholder="Mật Khẩu" required>
+                <input  asp-for="c" type="checkbox" class="check-box"><span>Remember me</span>
+                <button type="submit" class="submit-btn">Login</button>
+</form>
+
+=>server
+public IActionResult LoginAccount(PLogin z)
+        {
+            LoginMvc lo = new LoginMvc(loginUser);
+            lo.dangNhap(z.a, z.b, z.c);
+            return View();
+        }

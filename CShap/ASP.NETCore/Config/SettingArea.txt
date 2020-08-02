@@ -1,0 +1,36 @@
+ok có thể các bạn cần Area trong ASP.net core nhưng mãi mà nó méo chịu cháy đúng ko 
+=> bắt đầu nhé
+trong Startup.cs 
+app.UseMvc(routes =>
+            {
+                
+                routes.MapRoute(
+                         name: "Cart",
+                         template: "{area:exists}/{controller=CartIndex}/{action=GioHang}/{id?}");
+                routes.MapRoute(
+                        name: "default",
+                        template: "{controller=Home}/{action=Index}/{id?}");                
+            });
+nhớ  đúng thứ tự nhé default luôn để cuối cùng cho mình 
+ chú giải : name nhớ cái quần què này nhé
+            controller=CartIndex là  controller mặc định
+            action=GioHang là view mặc định
+
+Tạo 1 foder bên ngoài  có tên là Areas
+=> chuột phải => add => area.....
+tên là <bạn còn nhớ cái name phía trên ko> Cart 
+tạo 1 controller : CartIndex
+
+rồi thêm những cái cần vào nhé : 
+
+[Area("Cart")]
+    public class CartIndexController : Controller
+    {
+        [HttpGet]
+        [Route("Gio-Hang")]
+        public IActionResult GioHang()
+        {
+            return View();
+        }
+    }
+ khi chạy chỉ cần tên địa chỉ web /Gio-Hang

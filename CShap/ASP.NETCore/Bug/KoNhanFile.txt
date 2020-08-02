@@ -1,0 +1,11 @@
+Nó sẽ cho ra quả bug ntn  Assets file project.assets.json not found. Run a NuGet package restore
+ok bây h : Tools > NuGet Package Manager > Package Manager Console simply run:
+
+dotnet restore
+
+=> xóa sạch file bin đi nhé 
+
+nếu có bug ntn => Error MSB3541: Files has invalid value
+ xóa sạch file ojb 
+
+=> nó méo chạy iis thì làm ntn  ta lại xóa file .vs đi heehe 
