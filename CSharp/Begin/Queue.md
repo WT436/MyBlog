@@ -1,6 +1,6 @@
 # Hàng đợi (Queue)
 
-Hàng đợi là kiểu dữ liệu tốt để quản lý những nguồn tài nguyên giới hạn. Ví dụ, chúng ta muốn gởi thông điệp đến một tài nguyên mà chỉ xử lý được duy nhất một thông điệp một lần. Khi đó chúng ta sẽ thiết lập một hàng đợi thông điệp để xử lý các thông điệp theo thứ tự đưa vào. Lớp Queue thể hiện kiểu dữ liệu như trên, trong sau liệt kê những phương thức và thuộc tính thành viên
+- Hàng đợi là kiểu dữ liệu tốt để quản lý những nguồn tài nguyên giới hạn. Ví dụ, chúng ta muốn gởi thông điệp đến một tài nguyên mà chỉ xử lý được duy nhất một thông điệp một lần. Khi đó chúng ta sẽ thiết lập một hàng đợi thông điệp để xử lý các thông điệp theo thứ tự đưa vào. Lớp Queue thể hiện kiểu dữ liệu như trên, trong sau liệt kê những phương thức và thuộc tính thành viên
 
 - Synchronized() : Phương thức static trả về một Queue wrapper đượcthread-safe.
 - Count : Thuộc tính trả về số thành phần trong hàng đợi
@@ -62,4 +62,6 @@ namespace Programming_CSharp
 }
 ```
 
-Trong ví dụ này ArrayList được thay bằng Queue, chúng ta cũng có thể Enqueue những đối tượng do ta định nghĩa. Trong trong chương trình trên đầu tiên ta đưa 5 số nguyên vào trong hàng đợi theo tứ tự 0 5 10 15 20. Sau khi đưa vào ta lấy ra phần tử đầu tiên là 0 nên hàng đợi còn lại 4 số là 5 10 15 20, lần thứ hai ta lấy ra 5 và chỉ còn 3 phần tử trong mảng 10 15 20. Cuối cùng ta dùng phương thức Peek() là chỉ xem phần tử đầu hàng đợi chứ không xóa chúng ra khỏi hàng đợi nên kết quả cuối cùng hàng đợi vẫn còn 3 số là 10 15 20. Một điểm lưu ý là lớp Queue là một lớp có thể đếm được enumerable nên ta có thể truyền vào phương thức PrintValues với kiểu tham số khai báo IEnumerable. Việc chuyển đổi này là ngầm định. Trong phương thức PrintValues ta gọi phương thức GetEnumerator, nên nhớ rằng đây là phương thức đơn của tất cả những lớp IEnumerable. Kết quả là một đối tượng Enumerator được trả về, do đó chúng ta có thể sử dụng chúng để liệt kê tất cả những đối tượng có trong tập hợp.
+- Trong ví dụ này ArrayList được thay bằng Queue, chúng ta cũng có thể Enqueue những đối tượng do ta định nghĩa. Trong trong chương trình trên đầu tiên ta đưa 5 số nguyên vào trong hàng đợi theo tứ tự 0 5 10 15 20. Sau khi đưa vào ta lấy ra phần tử đầu tiên là 0 nên hàng đợi còn lại 4 số là 5 10 15 20, lần thứ hai ta lấy ra 5 và chỉ còn 3 phần tử trong mảng 10 15 20.
+- Cuối cùng ta dùng phương thức Peek() là chỉ xem phần tử đầu hàng đợi chứ không xóa chúng ra khỏi hàng đợi nên kết quả cuối cùng hàng đợi vẫn còn 3 số là 10 15 20. Một điểm lưu ý là lớp Queue là một lớp có thể đếm được enumerable nên ta có thể truyền vào phương thức PrintValues với kiểu tham số khai báo IEnumerable. Việc chuyển đổi này là ngầm định.
+- Trong phương thức PrintValues ta gọi phương thức GetEnumerator, nên nhớ rằng đây là phương thức đơn của tất cả những lớp IEnumerable. Kết quả là một đối tượng Enumerator được trả về, do đó chúng ta có thể sử dụng chúng để liệt kê tất cả những đối tượng có trong tập hợp.

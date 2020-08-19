@@ -79,9 +79,11 @@ t.GetTime( ref int theHour, ref int theMinute, ref int theSecond);
 ```
 
 - biên dịch với đoạn mã lệnh như trên sẽ được báo các lỗi sau:
-  Use of unassigned local variable ‘theHour’
-  Use of unassigned local variable ‘theMinute’
-  Use of unassigned local variable ‘theSecond’
+
+```html
+Use of unassigned local variable ‘theHour’ Use of unassigned local variable
+‘theMinute’ Use of unassigned local variable ‘theSecond’
+```
 
 - Để mở rộng cho yêu cầu trong trường hợp này ngôn ngữ C# cung cấp thêm một bổ sung tham chiếu là out. Khi sử dụng tham chiếu out thì yêu cầu bắt buộc phải khởi tạo các tham số tham chiếu được bỏ qua. Như các tham số trong phương thức GetTime(), các tham số này không cung cấp bất cứ thông tin nào cho phương thức mà chỉ đơn giản là cơ chế nhận thông tin và đưa ra bên ngoài. Do vậy ta có thể đánh dấu tất cả các tham số tham chiếu này là out, khi đó ta sẽ giảm được công việc phải khởi tạo các biến này trước khi đưa vào phương thức. Lưu ý là bên trong phương thức có các tham số tham chiếu out thì các tham số này phải được gán giá trị trước khi trả về. Ta có một số thay đổi cho phương thức GetTime() như sau:
 
