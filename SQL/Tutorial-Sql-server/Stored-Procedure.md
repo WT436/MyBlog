@@ -83,4 +83,39 @@ USE [test]
 - Tham số: procedure_name: Tên procedure bạn muốn xóa bỏ...
 
 - Ví dụ :DROP PROCEDURE spNhanvien;
+
+## Biến trong thủ tục lưu trữ
+
+- các biến trong thủ tục được khai báo Declanre theo cấu trúc
+
+```sql
+declare @Bien int
+```
+
+## tham số output
+
+- để có được tham số output trả ra thì ta làm theo cú pháp
+
+```sql
+@ten_Tham_so output
+```
+
+## lệnh return
+
+- như output , return trả về giá trị cho đối tượng thực thi proc
+
+```sql
+create proc Sp_TestReturn
+as
+begin
+declare @out int
+      select @out = count(*) from Test
+      return @out
+end
+-- thục thi
+declare @a int
+exec @a = Sp_TestReturn
+select @a
+```
+
 - nguồn : https://quantrimang.com/procedure-thu-tuc-trong-sql-server-159768
