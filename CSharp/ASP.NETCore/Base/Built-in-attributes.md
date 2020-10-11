@@ -11,4 +11,11 @@
 [StringLength]:độ dài
 [Url]: địa chỉ link
 [Remote]: chịu
+[Display(Name = "Tên hiển thị")]
+```
+
+# trả lỗi
+
+```c#
+[StringLength(8, ErrorMessage = "độ dài không được vượt quá 8 ")]
 ```
