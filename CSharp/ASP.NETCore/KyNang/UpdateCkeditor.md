@@ -1,6 +1,8 @@
 Đầu tiên chúng ta tải file ckeditor full trên Link https://ckeditor.com/ckeditor-4/download/
 
-+Trong file hrtml chúng ta add tag 
++Trong file hrtml chúng ta add tag
+
+```js
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/ckeditor/ckeditor.js"></script>
 
@@ -11,18 +13,23 @@
 -nút bấm  chuyển dữ liệu
 
 <a href="#" class="taiDuLieuLen">Tải Lên</a>
+```
 
-+Trong file js 
++Trong file js
 -khởi tạo khung dữ liệu
+
+```js
 $(document).ready(function () {
-    CKEDITOR.replace('editor', {
-        height: 400,
-        filebrowserUploadUrl: '/Admin/UpLoadCKEditorSingGer'
-    });   
+  CKEDITOR.replace("editor", {
+    height: 400,
+    filebrowserUploadUrl: "/Admin/UpLoadCKEditorSingGer",
+  });
 });
+```
 
---trên server để tải ảnh lên trên 
+--trên server để tải ảnh lên trên
 
+```c#
 public JsonResult UpLoadCKEditorSingGer(IFormFile upload)
         {
             var fileName = DateTime.Now.ToString("yyyyMMddHHmmss") + upload.FileName;
@@ -34,9 +41,13 @@ public JsonResult UpLoadCKEditorSingGer(IFormFile upload)
                 url = "/ImagePost/" + fileName
             });
         }
-/****************************************************************************************************/
+```
 
--chuyển dữ liệu lên server  dạng string
+/************************************************\*\*\*\*************************************************/
+
+-chuyển dữ liệu lên server dạng string
+
+```c#
 $('.taiDuLieuLen').click(() => {
     var a = CKEDITOR.instances['editor'].getData();
     $.ajax({
@@ -54,9 +65,11 @@ $('.taiDuLieuLen').click(() => {
         }
     });
 });
+```
 
 --phần lấy dữ liệu để riêng
 
+```c#
  $('.SaveCkEditor').click(() => {
         var editorText = CKEDITOR.instances['editor'].getData();
     });
@@ -65,8 +78,11 @@ $('.taiDuLieuLen').click(() => {
         $('#ViewDataCKEditor').html(editorText);
         $('.ContentPostViewAdmin').val(editorText);
     });
+```
 
 +Trong phần Controller
+
+```c#
 public JsonResult taiDuLieuLenServer(string tradulieu)
         {
             try
@@ -78,5 +94,6 @@ public JsonResult taiDuLieuLenServer(string tradulieu)
             {
                 return Json("false");
             }
-           
+
         }
+```
