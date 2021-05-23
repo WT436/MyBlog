@@ -1,7 +1,3 @@
-có 2 cách để lấy ip trong truyền thuyết :
-
-1.  dài dòng văn tự
-
 ```c#
  /*Get IpClient bên DI*/
            services.AddControllersWithViews();
@@ -15,8 +11,6 @@ có 2 cách để lấy ip trong truyền thuyết :
 
     var ip = _GetIP.ActionContext.HttpContext.Connection.RemoteIpAddress.ToString();
 ```
-
-2. nhỏ nhưng có võ
 
 ```c#
 var ip = HttpContext.Connection.RemoteIpAddress.ToString();

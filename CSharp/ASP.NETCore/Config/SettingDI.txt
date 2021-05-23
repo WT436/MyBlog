@@ -1,21 +1,13 @@
-ok vấn đề ngày hôm nay là , có đôi lúc chúng ta có cả trăm cái DI 
-thậm trí là cả ngàn cái cả vạn cái mà như chúng ta đã biết
-file setup.cs của asp.net core thì một file mà chúng ta tìm mỏi cả con mắt 
-kéo mỏi cả đôi tay hư bố cả vài con chuột mới đến dk phần đáy đúng ko nào ,
- vậy chúng ta cần làm cái khỉ gì để có thể giải quyết vấn đề này ,
-  chắc hẳng ai cx nghĩ là phải tách cái thằng bụng phệ này ra khỏi file setup.cs đúng ko 
-
-
 BẮT ĐẦU NHÉ
 
-đầu tiên tạo 1 foder ở trên phần web của chúng ta => InstallerConfigurations
+đầu tiên tạo 1 foder của chúng ta => InstallerConfigurations
 trong này cài 3 file nữa cho mk :
 + DIInstall.cs (1)
 + IInstaller.cs (2)
 + InstallerExtensions.cs (3)
 
 
-cài các file nào 
+cài các file
 
 (1)  
 using Microsoft.Extensions.Configuration;
@@ -60,9 +52,5 @@ public static class InstallerExtensions
         }
     }
 
-ok con dê , chúng ta thịt dê nào 
-
 từ Startup.cs chúng ta tìm đến ConfigureServices
  ui cuối cùng cũng sắp xong  add cái này vào nhé : services.InstallServicesInAssembly(Configuration);
-
- => chúng bạn thành công

@@ -1,5 +1,3 @@
- * chắc hẳn bạn sẽ không còn lạ lẫm gì với Markdown - chuẩn viết tài liệu kỹ thuật của giới phát triển phần mềm. Dùng Markdown bạn sẽ viết được những nội dung phong phú với công sức bỏ ra là ít nhất,mk thường dùng cho git hehe
-
 # Tiêu đề
 ```
 # Header h1

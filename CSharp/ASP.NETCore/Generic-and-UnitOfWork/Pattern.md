@@ -29,7 +29,7 @@ public class DemoDbContext : DbContext
     }
 ```
 
-- Login và Product là 2 class hứng dữ liệu chả biết giải thích ntn , thôi thì tạo bừa đi
+- Login và Product là 2 class hứng dữ liệu
 
 ```c#
  public class Login
@@ -64,7 +64,7 @@ public class DemoDbContext : DbContext
 
 ## Services : tầng khai báo mẫu cho Repository làm theo
 
-- IRepository class này
+- IRepository
 
 ```c#
  public interface IRepository<T> where T : class
@@ -97,7 +97,7 @@ public class DemoDbContext : DbContext
     }
 ```
 
-## domain nơi thực thi , trái tim của hệ thống
+## domain
 
 - Tạo một Repositories class
 
@@ -236,8 +236,6 @@ public class Repository<T> : IRepository<T> where T : class
     }
 ```
 
-- đến phần quẩy rồi , đến đây check kiểu hay làm gì cx dk nhé ..... add class mẫu như sau DemoLogin
-
 ```c#
 // ở đây cần cái gì thì gọi cái ấy ra , chứ ko phải gọi tất , đừng ngố như mình ngày  xưa
 public class DemoLogin
@@ -274,14 +272,10 @@ public class DemoLogin
     }
 ```
 
-# Họ Họ chưa khai báo DI kìa
-
 ```c#
             services.AddTransient<IRepository<Login>, Repository<Login>>();
             services.AddTransient<IRepository<Product>, Repository<Product>>();
             services.AddTransient<UnitOfWork>();//buộc có
 ```
-
-- chả biết còn gì không , rồi mk sẽ update sau
 
 # code mẫu https://github.com/WT436/Demo-Unit-Of-Work

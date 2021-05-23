@@ -1,11 +1,6 @@
-Api ??????
-Thường chúng ta thấy  khi ai đó viết api họ  thường có postman hay fiddler 4 ..... , 
-nhưng có một cách hay ho hơn nhiều Swagger , trực tiếp luôn ,dài dòng quá ,nó đây nè 
-
 ![image](https://user-images.githubusercontent.com/63473793/88499681-c906fb00-cff0-11ea-900d-b1817660311c.png)
 
 ----------------------------------------------------------------------------------------------------------------
- Cài đặt thôi , demo .net nhé
 
  NUGET Swashbuckle.AspNetCore
  

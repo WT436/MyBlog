@@ -1,6 +1,6 @@
 Đầu tiên chúng ta tải file ckeditor full trên Link https://ckeditor.com/ckeditor-4/download/
 
-+Trong file hrtml chúng ta add tag
++Trong file hrtml add tag
 
 ```js
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -4,13 +4,6 @@
 #region lay tat ca san pham cua nha cung cap
         public static List<Product> layAllSanPhamCuaNhaCungCap(string Nhacc, int tab, ref int tong, int soBanGhi)
         {
-            /*
-                Trong đó
-                Key Tìm Kiếm : Nhacc
-                Tìm TRang thứ mấy : tab
-                Trả ra Tổng số trang : tong
-                Số Bản Ghi : soBanGhi
-            */
             using (SellContext db = new SellContext())
             {
                 try

@@ -19,7 +19,6 @@
 public interface INguoiDung
     {
         void Update(IQuanLy subject); 
-        //ồ nó là nơi gửi cho khách hàng nhé 
     }
 public interface IQuanLy
     {
