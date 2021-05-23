@@ -1,0 +1,101 @@
+IV. Các quy tắc bắt buộc
+1. Đặt tên biến/hàm/lớp
+- Tên class thông thường cần từ 3-5 từ
+- Tên lớp đặt theo PascalCase, ví dụ: UserClass, CategoryClass…
+- Tên hàm và phương thức sử dụng camelCase, ví dụ getUser, getCategory…
+- Tên biến cũng sử dụng camelCase $loginUser, $categoryList…
+- Tên hằng số thì đặc biệt, viết hoa hết và cách nhau bởi dấu gạch dưới DISCOUNT_PERCENT, LIMIT_RATE…
+- Tên bảng, tên cột trong Database sử dụng underscore và sử dụng danh từ số nhiều, ví dụ bảng oauth_clients, oauth_refresh_tokens.
+- Đặt tên mô tả được mục đích sử dụng
+- Tránh đặt tên dễ gây hiểu nhầm mục đích sử dụng
+- Các tên khác nhau phải dễ phân biệt ý nghĩa, mục đích sử dụng khác nhau
+- Tên lớp, đối tượng phải là danh từ hoặc cụm danh từ
+- Tên phương thức phải là động từ hoặc cụm động từ
+- Không chọn những tên mang nghĩa đùa cợt, thiếu nghiêm túc
+- Đối với mỗi một khái niệm chỉ sử dụng một tên duy nhất để đảm bảo sự thống nhất
+- Không sử dụng một thuật ngữ cho hai mục đích/ý nghĩa sử dụng khác nhau
+- Sử dụng tên là các giải pháp nổi tiếng trong việc giải quyết vấn đề ở lĩnh vực đó
+- Sử dụng tên là các vấn đề nổi tiếng thường gặp ở lĩnh vực đó
+- Phải đặt tên sao cho có thể đọc lên thành lời được
+- Đặt tên sao cho dễ tìm kiếm trong thư mục dự án
+- Nên sử dụng các tên thông dụng
+- Phạm vi của biến được sử dụng càng xa, thì được phép đặt tên biến càng dài
+- Đặt tên biến phải dựa vào ngữ cảnh phù hợp
+- Không thêm thông tin dư thừa vào tên biến
+- Chọn tên biến/hàm/class mô tả được chính xác ý nghĩa/mục đích sử dụng của nó, ngắn gọn, dễ hiểu.
+- Nếu đặt tên biến mà cần comment bên cạnh để giải thích ý nghĩa của biến, thì có nghĩa tên biến đó chưa đúng
+- Tương tự đối với tên hàm/lớp
+- Không đặt tên viết tắt VD : HP => HomePage
+- Tránh đặt tên hai hoặc nhiều biến có ý nghĩa gần giống nhau sẽ rất khó phân biệt.
+ * Ví dụ không thể phân biệt được nameString và name khác nhau.
+ * Ví dụ productInfo, product cũng không phân biệt được.
+- Không mã hóa kiểu, tiền tố, hậu tố vào tên
+- Không thêm phần mã hóa kiểu, prefix... vào tên biến như phong cách lập trình C cũ.
+ * Ví dụ vi phạm: phoneString bReadLine m_description
+- Thứ tự phạm vi theo tứ tự giảm dần: fields -> parameters -> locals -> loop variables
+- Biến cần đặt tên biến trong một ngữ cảnh phù hợp: class, function, namespace 
+2. Cách viết hàm
+- Một hàm phải nhỏ, số lượng dòng code không quá 50 dòng
+- Không lặp code
+- Số lượng tham số của hàm không được lớn hơn 3
+- Hạn chế tối đa việc sử dụng tham số có kiểu là Boolean
+- Hàm không có tham số: rất tốt
+- Hàm có một tham số: tốt
+- Hàm có 2 tham số: được. Nhưng nên cân nhắc việc chuyển đổi hàm về dạng 1 tham số nếu có thể
+- Hàm có 3 tham số: chấp nhận được. Tuy nhiên không khuyến khích.
+* Vì khi hàm có 3 tham số, có nghĩa là số test case viết test cho hàm đó là rất nhiều.
+- Hàm có 4 tham số trở lên: rất tồi
+=> Do đó giải pháp nâng cao chất lượng hàm là:
+*  Nếu hàm có 2 tới 3 tham số, luôn luôn cố gắng xem có thể biến đổi về dạng hàm có 0 hoặc 1 tham số không. 
+* Trường hợp thực sự cần thiết mới cho phép 2 tới 3 tham số.
+* Nếu hàm có nhiều hơn 3 tham số, thì các tham số nên được nhóm vào trong một object/data structure.
+- Luật: Command Query Separation
+- Nếu một đoạn code trong hàm có thể tách ra thành một hàm con khác, chứng tỏ hàm hiện thời quá dài. Bắt buộc phải refactor code.
+- Một hàm nên đủ nhỏ (không tràn quá màn hình), giúp người đọc có thể hiểu mà không cần comment hay viết tài liệu.
+- Bố cục giảm dần Hàm gọi sẽ đứng trước hàm được gọi, và đứng gần nhất có thể.
+- Mỗi hàm chỉ làm một việc Một hàm chỉ làm một việc duy nhất, không được gộp quá nhiều logic xử lý vào trong cùng một hàm.
+- Tên hàm phải mô tả được các hành động mà hàm đó thực thi, tránh hiệu ứng lề
+- Khi đặt tên hàm là gì thì phải bảo đảm hàm đó làm đúng như mô tả, không được phép làm ít hơn hoặc nhiều hơn. 
+Đặc biệt nghiêm cấm việc làm thay đổi giá trị các biến toàn cục, tài nguyên hệ thống,... trong khi tên hàm không hề đề cập tới việc này.
+- Không được sử dụng output argument Không được phép sử dụng output argument. Nếu cần trả về kết quả thì sử dụng "return".
+- Nghiêm cấm việc lặp đi lặp lại các đoạn code. Nếu có các đoạn code lặp lại (kể cả ở các hàm khác nhau, các class khác nhau), cần refactor chúng ra thành một hàm.
+- Không sử dụng comment để giải thích đoạn code khi có thể tách đoạn code đó ra thành một hàm với tên mô tả đúng mục đích
+- Cấm có những con số từ trên trời rơi xuống VD : for(int i=0; i<10; i++) {} => ở đây là 10
+3. Cách viết comment
+- Không sử dụng comment để giải thích đoạn code khi có thể tách đoạn code đó ra thành một hàm với tên mô tả đúng mục đích
+- Không để tồn tại những comment dư thừa, vô nghĩa
+- Không sử dụng comment để theo dõi sự thay đổi code
+- Không bao giờ comment tạm một đoạn code với mục đích trong tương lai sẽ mở ra sử dụng (chưa biết khi nào)
+- Không được dùng những comment chỉ để đánh dấu nơi bắt đầu, kết thúc các đoạn code
+- Không viết docs cho các hàm/class không public ra ngoài
+- Trước khi viết một comment để giải thích một vấn đề gì đó, bạn phải cân nhắc thật kỹ xem:
+- Tuyệt đối cấm dùng comment chỉ để ghi thời gian thay đổi code, người thay đổi code
+* liệu có thể đặt tên hàm,
+* tên biến mô tả chi tiết vấn đề đó không (không ngại tên biến, tên hàm dài).
+* Nếu có thể, hãy đặt chúng và xóa comment đi.
+4. Cách định dạng file mã nguồn
+- Một file code không quá 500 dòng
+- Sử dụng dòng trắng để phân tách các phần độc lập trong code
+- Các dòng code liên quan tới nhau nên đứng gần nhau
+- Biến nên được định nghĩa gần nơi nó được sử dụng
+- Biến cục bộ nên để ở đầu hàm
+- Biến đối tượng nên được đặt ở đầu class
+- Biến đếm của vòng lặp nên được định nghĩa bên trong vòng lặp
+- Các hàm phụ thuộc nhau nên được đặt gần nhau
+- Hàm gọi đứng trước hàm được gọi
+- if/else/while/for khi có một dòng lệnh bên trong, vẫn phải xuống dòng và đặt dòng lệnh của nó trong ngoặc {}
+5. Bắt và phòng tránh lỗi
+- Khi gặp lỗi, hàm không trả về mã lỗi, phải ném ra Exception
+- Khi ném ra một Exception, nên cung cấp đầy đủ thông tin về lỗi bao gồm: nội dung lỗi (có thể là mã lỗi, message), stack trace.
+- Bọc các Exception của một API bên thứ ba vào làm một Exception tự định nghĩa
+- Không return giá trị null
+- Không truyền giá trị null vào tham số hàm
+- Bắt lỗi Nên sử dụng unchecked exception (không bắt buộc phải try... catch hay throws tại thời điểm biên dịch) 
+- Thay vì ném ra checked exception (bắt buộc try... catch hoặc throws).
+6. Cấu tạo lớp/cấu trúc
+- Một class chỉ đảm đương một trách nhiệm
+- Luật: Data/Object Anti-Symmetry
+- Không đặt các phương thức logic vào data structure
+- Nguyên tắc tri thức tối thiểu
+- Khi cần thường xuyên thêm mới hàm thì chọn kiểu dữ liệu là Procedure
+- Khi cần thường xuyên thêm mới kiểu dữ liệu, không thay đổi hàm thì chọn kiểu Object

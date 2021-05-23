@@ -1,0 +1,10 @@
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com. 
+remote: error: Trace: ad83626ce66be8f94dec2cc9fae85517cfcf8ddf9b6c0964ff7acb09cb484b32 
+remote: error: See http://git.io/iEPt8g for more information. 
+remote: error: File ConsoleTest/bin/Debug/netcoreapp3.1/runtimes/linux-x64/native/libgrpc_csharp_ext.x64.so is 110.42 MB; 
+this exceeds GitHub's file size limit of 100.00 MB To https://github.com/WT436/Lib.git ! 
+[remote rejected] main -> main (pre-receive hook declined)
+
+git filter-branch --tree-filter 'rm -rf path/to/your/file' HEAD
+git push
+==============================================================================================================
