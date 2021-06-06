@@ -9,6 +9,7 @@
 
 ## Client Yêu cầu Dữ liệu HTTP Request
 > tổng cộng có 9 loại thường gặp cx có thể là 15 tùy hứng 
+
 | HTTP method | Ý Nghĩa                                                           |
 |-------------|-------------------------------------------------------------------|
 | GET         | được sử dụng để lấy thông tin từ server theo URI đã cung cấp.     |
