@@ -1,9 +1,12 @@
 I. Lần đầu
 - clone source trên git về
-	git clone https:...............
+-- với gitlab , chú ý mạng của công ty
+	git clone https:
+-- khi clone nếu lỗi ssh thì cần bắn key cho nó
 - checkout sang branch develop
 	git checkout develop
-- tạo branch của mình
+-- cản thận chỉnh sửa mất develop và phải push lên trước hoặc merge branch bằng vsc
+- tạo branch của mình (chú ý là tạo từ đâu . có thể nhầm sang bran nhánh con của develop)
 	vd: git checkout -b namth
 - push branch của mình lên git
 	vd: git push origin namth
@@ -18,4 +21,4 @@ II. Lần thứ hai trở đi
 - pull code mới nhất từ develop về
 - xử lý conflig nếu có
 - nếu có thay đổi thì commit một lần nữa
-- lên github tạo pull request từ nhánh của mình vào develop (assign cho vuhx)
+- lên github tạo pull request từ nhánh của mình vào develop
