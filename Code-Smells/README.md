@@ -1,0 +1,1 @@
+Code thì không có ...... mùi. Nhưng thằng đọc code thì nó sẽ ngửi thấy mùi ..... bất lực!
