@@ -11,6 +11,12 @@
 - Không sử dụng một thuật ngữ cho hai mục đích/ý nghĩa sử dụng khác nhau
 - Sử dụng tên là các giải pháp nổi tiếng trong việc giải quyết vấn đề ở lĩnh vực đó
 - Sử dụng tên là các vấn đề nổi tiếng thường gặp ở lĩnh vực đó
+- Phải đặt tên sao cho có thể đọc lên thành lời được
+- Đặt tên sao cho dễ tìm kiếm trong thư mục dự án
+- Nên sử dụng các tên thông dụng
+- Phạm vi của biến được sử dụng càng xa, thì được phép đặt tên biến càng dài
+- Đặt tên biến phải dựa vào ngữ cảnh phù hợp
+- Không thêm thông tin dư thừa vào tên biến
 
 2. Phân loại Nội dung Diễn giải
 
