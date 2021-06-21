@@ -17,4 +17,6 @@ Quy tắc nâng cấp bản thân theo cấp độ của lục quân
 
 > Chậm ban đầu nhưng sẽ rất nhanh về sau.
 
-> Mục tiêu : Từng bước đi lên Solution Architect
+> Mục tiêu : Từng bước đi lên Solution Architect (80 🌟)
+
+> Mục đích : đi lè người là chính, chứ bản thân đã có tài cán gì đâu :D
