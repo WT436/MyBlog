@@ -20,3 +20,5 @@ Quy tắc nâng cấp bản thân theo cấp độ của lục quân
 > Mục tiêu : Từng bước đi lên Solution Architect (80 🌟)
 
 > Mục đích : đi lè người là chính, chứ bản thân đã có tài cán gì đâu :D
+
+> Code như devs, Test như QC, Deploy như DevOps!
