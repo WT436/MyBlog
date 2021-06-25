@@ -22,3 +22,5 @@ Quy tắc nâng cấp bản thân theo cấp độ của lục quân
 > Mục đích : đi lè người là chính, chứ bản thân đã có tài cán gì đâu :D
 
 > Code như devs, Test như QC, Deploy như DevOps!
+
+Đây cũng là một cách mà tôi tự dạy lại chính mình khi có những phân đọan kiến thức lâu không dùng. Tránh việc tạo ra những lỗ hổng kiến thức theo thời gian. Vì tôi hay quên :D . Tôi sẽ cố gắng cập nhật tất cả kiến thức trong vùng lập trình mà tôi đã và đang có trong thời gian nhanh nhất có thể. Có thể sẽ không xong vì thời lượng không cho phép.
