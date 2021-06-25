@@ -18,14 +18,14 @@ Chào mừng đến với Refactoring techniques. Nơi mà 'Code lởm' Không c
 
 ## Menu 
 
-I. Composing Methods
-II. Moving Features Between Objects
-III. Organisation Data
-IV. Simplifying Conditional Expressions
-V. Making Method Calls Simpler
-VI. Dealing with Generalisation
-VII. Big Refactoring
-VIII. Signs of code that might need refactoring
+1. Composing Methods
+2. Moving Features Between Objects
+3. Organisation Data
+4. Simplifying Conditional Expressions
+5. Making Method Calls Simpler
+6. Dealing with Generalisation
+7. Big Refactoring
+8. Signs of code that might need refactoring
 
 > Sơ bộ các khái niệm thì đã có trong file pdf  cùng thư mục này. Hãy dành chút thời gian đọc nó nhé Nam
 
