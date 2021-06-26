@@ -1,5 +1,5 @@
-=================================>Ngôn ngữ C#
-=========>Tại sao phải sử dụng ngôn ngữ C#
+# Ngôn ngữ C#
+## Tại sao phải sử dụng ngôn ngữ C#
 
 Nhiều người tin rằng không cần thiết có một ngôn ngữ lập trình mới. Java, C++, Perl,
 Microsoft Visual Basic, và những ngôn ngữ khác được nghĩ rằng đã cung cấp tất cả
@@ -20,7 +20,7 @@ Microsoft đưa ra một số mục đích khi xây dựng ngôn ngữ này. Nh�
 • C# là ngôn ngữ hướng module
 • C# sẽ trở nên phổ biến
 
-=========>C# là ngôn ngữ đơn giản
+## C# là ngôn ngữ đơn giản
 
 C# loại bỏ một vài sự phức tạp và rối rắm của những ngôn ngữ như Java và c++, bao
 gồm việc loại bỏ những macro, những template, đa kế thừa, và lớp cơ sở ảo (virtual base
@@ -43,7 +43,7 @@ Nếu chúng ta đã sử dụng Java và tin rằng nó đơn giản, thì chú
 rằng C# cũng đơn giản. Hầu hết mọi người đều không tin rằng Java là ngôn ngữ đơn
 giản. Tuy nhiên, C# thì dễ hơn là Java và C++.
 
-=========>C# là ngôn ngữ hiện đại
+## C# là ngôn ngữ hiện đại
 
 Điều gì làm cho một ngôn ngữ hiện đại? Những đặc tính như là xử lý ngoại lệ, thu gom
 bộ nhớ tự động, những kiểu dữ liệu mở rộng, và bảo mật mã nguồn là những đặc tính
@@ -57,14 +57,14 @@ rắc rối của ngôn ngữ này. C# loại bỏ những phức tạp và rắ
 Trong C#, bộ thu gom bộ nhớ tự động và kiểu dữ liệu an toàn được tích hợp vào ngôn
 ngữ,sẽ loại bỏ những vấn đề rắc rối của C++.
 
-=========>C# là ngôn ngữ hướng đối tượng
+## C# là ngôn ngữ hướng đối tượng
 
 Những đặc điểm chính của ngôn ngữ hướng đối tượng (Object-oriented language) là sự
 đóng gói (encapsulation), sự kế thừa (inheritance), và đa hình (polymorphism). C# hỗ
 trợ tất cả những đặc tính trên. Phần hướng đối tượng của C# sẽ được trình bày chi tiết
 trong một chương riêng ở phần sau.
 
-=========>C# là ngôn ngữ mạnh mẽ và cũng mềm dẻo
+## C# là ngôn ngữ mạnh mẽ và cũng mềm dẻo
 
 Như đã đề cập trước, với ngôn ngữ C# chúng ta chỉ bị giới hạn ở chính bởi bản thân hay
 là trí tưởng tượng của chúng ta. Ngôn ngữ này không đặt những ràng buộc lên những
@@ -72,7 +72,7 @@ việc có thể làm. C# được sử dụng cho nhiều các dự án khác n
 xử lý văn bản, ứng dụng đồ họa, bản tính, hay thậm chí những trình biên dịch cho các
 ngôn ngữ khác.
 
-=========>C# là ngôn ngữ ít từ khóa
+## C# là ngôn ngữ ít từ khóa
 
 C# là ngôn ngữ sử dụng giới hạn những từ khóa. Phần lớn các từ khóa được sử dụng để
 mô tả thông tin. Chúng ta có thể nghĩ rằng một ngôn ngữ có nhiều từ khóa thì sẽ mạnh
@@ -80,7 +80,7 @@ hơn. Điều này không phải sự thật, ít nhất là trong trường h�
 thể tìm thấy rằng ngôn ngữ này có thể được sử dụng để làm bất cứ nhiệm vụ nào. Bảng
 sau liệt kê các từ khóa của ngôn ngữ C#.
 
-=========>C# là ngôn ngữ hướng module
+## C# là ngôn ngữ hướng module
 
 Mã nguồn C# có thể được viết trong những phần được gọi là những lớp, những lớp này
 chứa các phương thức thành viên của nó. Những lớp và những phương thức có thể được
@@ -88,7 +88,7 @@ sử dụng lại trong ứng dụng hay các chương trình khác. Bằng các
 tin đến những lớp hay phương thức chúng ta có thể tạo ra những mã nguồn dùng lại có
 hiệu quả.
 
-=========>C# sẽ là một ngôn ngữ phổ biến
+## C# sẽ là một ngôn ngữ phổ biến
 
 C# là một trong những ngôn ngữ lập trình mới nhất. Vào thời điểm cuốn sách này được
 viết, nó không được biết như là một ngôn ngữ phổ biến. Nhưng ngôn ngữ này có một số
@@ -109,7 +109,7 @@ thay đổi trong cách tạo và thực thi những ứng dụng.
 Ngoài hai lý do trên ngôn ngữ C# cũng sẽ trở nên phổ biến do những đặc tính của ngôn
 ngữ này được đề cập trong mục trước như: đơn giản, hướng đối tượng, mạnh mẽ...
 
-=========>Ngôn ngữ C# và những ngôn ngữ khác
+## Ngôn ngữ C# và những ngôn ngữ khác
 
 Chúng ta đã từng nghe đến những ngôn ngữ khác như Visual Basic, C++ và Java. Có lẽ
 chúng ta cũng tự hỏi sự khác nhau giữa ngôn ngữ C# và nhưng ngôn ngữ đó. Và cũng tự
