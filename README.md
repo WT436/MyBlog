@@ -1,3 +1,9 @@
+# Chào mừng 
+
+Welcome! bạn đã đến với blog public của tôi. Nơi kiến thức căn bản của tôi được phép show ra. [Nghe chút nhạc](https://www.youtube.com/watch?v=wJnBTPUQS5A&list=RDUtF6Jej8yb4) Đừng cười vì ai cũng có nơi riêng tư.
+
+![image](https://user-images.githubusercontent.com/63473793/123522553-1485c580-d6e8-11eb-88d4-dbcf63a6d66c.png)
+
 Quy tắc nâng cấp bản thân theo cấp độ của lục quân
 
 | Quân hàm  | Ý nghĩa    | Số Sao             | Đã có             |
