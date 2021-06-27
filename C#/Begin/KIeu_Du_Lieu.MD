@@ -1,4 +1,4 @@
-===================>Kiểu dữ liệu
+# Kiểu dữ liệu
 
 - Hệ thống kiểu dữ liệu, phân biệt giữa kiểu dữ liệu xây dựng
 sẵn (như int, bool, string…) với kiểu dữ liệu do người dùng định nghĩa (lớp hay cấu trúc
@@ -45,7 +45,7 @@ khi nào làm việc với những đoạn mã lệnh không được quản lý
 lệnh không được quản lý là các lệnh được viết bên ngoài nền .MS.NET, như là các đối
 tượng COM.
 
-===================>Kiểu dữ liệu xây dựng sẵn
+# Kiểu dữ liệu xây dựng sẵn
 
 - Ngôn ngữ C# đưa ra các kiểu dữ liệu xây dựng sẵn rất hữu dụng, phù hợp với một ngôn
 ngữ lập trình hiện đại, mỗi kiểu dữ liệu được ánh xạ đến một kiểu dữ liệu được hỗ trợ
@@ -99,7 +99,7 @@ dấu tab.
 
 ************************************************************************
 
-===================>Chuyển đổi các kiểu dữ liệu
+# Chuyển đổi các kiểu dữ liệu
 
 - Những đối tượng của một kiểu dữ liệu này có thể được chuyển sang những đối tượng
 của một kiểu dữ liệu khác thông qua cơ chế chuyển đổi tường minh hay ngầm định.

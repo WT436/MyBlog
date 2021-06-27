@@ -1,4 +1,4 @@
-=============>Biểu thức và khoảng trắng
+# Biểu thức và khoảng trắng
 
 Biểu thức
 
@@ -21,7 +21,7 @@ và tiếp sau đó thì var2 cũng được nhận giá trị là 24. Do vậy 
 một giá trị là 24. Có thể dùng lệnh trên để khởi tạo nhiều biến có cùng một giá trị như:
 a = b = c = d = 24;
 
-=============>Khoảng trắng (whitespace)
+# Khoảng trắng (whitespace)
 
 Trong ngôn ngữ C#, những khoảng trắng, khoảng tab và các dòng được xem như là
 khoảng trắng (whitespace), giống như tên gọi vì chỉ xuất hiện những khoảng trắng để
