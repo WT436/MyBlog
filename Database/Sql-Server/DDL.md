@@ -1,4 +1,9 @@
-# Function
+# "Data Definition Language
+
+Phần này mô tả một số lệnh DDL (Data Definition Language) cơ bản để tạo một cơ sở dữ liệu, một bảng trong cơ sở dữ liệu, một dạng xem và cuối cùng là một thủ tục được lưu trữ.
+
+
+## Function
 
 - là một đối tượng trong cơ sở dữ liệu bao gồm một tập nhiều câu lệnh được nhóm lại với nhau và được tạo ra với mục đích sử dụng lại. Trong SQL Server, hàm được lưu trữ và bạn có thể truyền các tham số vào cũng như trả về các giá trị.
 
@@ -105,3 +110,5 @@ các câu lệnh trả vào table
 return
 end
 ```
+
+Ngoài ra còn có : Create Database, Create Table ,Create View ,Create Procedure....
