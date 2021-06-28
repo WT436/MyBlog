@@ -29,6 +29,10 @@ Quy tắc nâng cấp bản thân theo cấp độ của lục quân
 
 > Code như devs, Test như QC, Deploy như DevOps!
 
+> Do Blog dạng public nên sẽ không có detail, thủ pháp, Nội tại, EXP ....  mà chỉ có bộ khung chung, và những thứ mà một thằng ngu bắt buộc phải có trước khi đi lên Junior. Muốn xem chi tiết vui lòng tại WT436 Full
+
+> Tìm tôi tại : Tor => 3 => id : 32f0e2bba6e2dd2fb1350028d094fa10
+
 Đây cũng là một cách mà tôi tự dạy lại chính mình khi có những phân đọan kiến thức lâu không dùng. Tránh việc tạo ra những lỗ hổng kiến thức theo thời gian. Vì tôi hay quên :D . Tôi sẽ cố gắng cập nhật tất cả kiến thức trong vùng lập trình mà tôi đã và đang có trong thời gian nhanh nhất có thể. Có thể sẽ không xong vì thời lượng không cho phép.
 
 Chúng ta đã mất đi một huyền thoại : [GO](https://www.youtube.com/watch?v=UtF6Jej8yb4&list=RDUtF6Jej8yb4)
