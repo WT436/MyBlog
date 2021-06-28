@@ -1,4 +1,4 @@
-# Danh Sách Lặt Vặt
+# Aggregate Functions
 
 1. MIN()
 
