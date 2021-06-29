@@ -1,0 +1,1 @@
+# bulk copy program utility (bcp) sql
