@@ -36,7 +36,3 @@ Quy tắc nâng cấp bản thân theo cấp độ của lục quân
 Đây cũng là một cách mà tôi tự dạy lại chính mình khi có những phân đọan kiến thức lâu không dùng. Tránh việc tạo ra những lỗ hổng kiến thức theo thời gian. Vì tôi hay quên :D . Tôi sẽ cố gắng cập nhật tất cả kiến thức trong vùng lập trình mà tôi đã và đang có trong thời gian nhanh nhất có thể. Có thể sẽ không xong vì thời lượng không cho phép.
 
 Chúng ta đã mất đi một huyền thoại : [GO](https://www.youtube.com/watch?v=UtF6Jej8yb4&list=RDUtF6Jej8yb4)
-
-Quá trình : 
-
-1/7/2021 :  Power-Automate
