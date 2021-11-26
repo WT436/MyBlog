@@ -1,0 +1,72 @@
+Commit  	: lệnh comment lội dung push: git commit -m 'nội dung'
+Branches	: là một nhánh tách ra từ nhánh chính
+	  		+ git checkout -b bugFix : lệnh tạo và check nhánh
+			+ git push --set-upstream origin develop : di chuyển nhánh
+			+ git checkout c3 : lấy dữ liệu commit c3
+			+ git branch -f main c6 : dic chuyển branch về commit c6
+			+ git branch -f main main~1 : di chuyển branch main về commit trước đó 1 đơn vị commit
+		        + git branch -D <branchname>
+Merge   	: dùng để hợp nhất nhánh
+	    	+ git merge bugFix       : kết hợp nhánh nào vào nhánh hiện tại và giữ nhánh hiện tại
+	        + git pull origin develop
+	    	+ git branch             : kiểm tra các nhánh
+Revert  	: Hoàn tác commit trước đó nhưng copy vào commit tiếp theo
+			+ git revert pushed : copy commit trước đó và commit 1 lần nữa (tạo thành commit sau commit hiện tại)
+			+ git revert c0 : lấy commit c0 thành commit hiện tại 
+Reset   	: Hoàn tác vào đúng vị trí commit đó
+			+  git reset c0 : branch hiện tại quay về commit c0
+Rebase  	: chuyển công việc của nhánh hiện tại qua nhánh đích
+			+ git rebase main : chuyển công việc của mình từ nhánh hiện tại qua nhánh 
+cherry-pick : Copy commit vào tiếp sau nhánh đang check
+			+ git cherry-pick c3 c4 c7 : copy commit c3 c4 c7 vào nhánh hiện tại
+Tag         : 
+			+ git tag noidung(hello) codecommit(c2)
+-------------------------Tài liệu cách dùng từng loại theo lệnh git --help ----------
+
+Khởi tạo một khu vực làm việc trên local
+   clone             :  Clone a repository into a new directory (sao chép git đã có sắn trên git)
+                     +  git clone <link git>
+   init              :  Create an empty Git repository or reinitialize an existing one(Tạo một kho lưu trữ Git trống hoặc khởi động lại kho hiện có)
+                     +  git init
+
+work on the current change (see also: git help everyday) <làm việc với sự thay đổi hiện tại>
+   add               :  Add file contents to the index <Thêm lội dung vào chỉ mục hiện tại>
+                     +  git add .
+                     +  git add file
+   mv                :  Move or rename a file, a directory, or a symlink
+   restore           :  Restore working tree files
+   rm                :  Remove files from the working tree and from the index
+   sparse-checkout   :  Initialize and modify the sparse-checkout
+
+examine the history and state (see also: git help revisions) <kiểm tra lịch sử và trạng thái>
+   bisect            :  Use binary search to find the commit that introduced a bug
+   diff              :  Show changes between commits, commit and working tree, etc
+   grep              :  Print lines matching a pattern
+   log               :  Show commit logs
+   show              :  Show various types of objects
+   status            :  Show the working tree status
+
+grow, mark and tweak your common history <phát triển, đánh dấu và điều chỉnh lịch sử chung của bạn>
+   branch            :  Liệt kê, tạo hoặc xóa các nhánh
+                     +  git checkout -b bugFix                 : lệnh tạo và check nhánh
+			            +  git push --set-upstream origin develop : di chuyển nhánh
+			            +  git checkout c3                        : lấy dữ liệu commit c3
+			            +  git branch -f main c6                  : dic chuyển branch về commit c6
+			            +  git branch -f main main~1              : di chuyển branch main về commit trước đó 1 đơn vị commit
+		               +  git branch -D <branchname>
+   commit            :  Record changes to the repository
+   merge             :  Kết hợp hai hoặc nhiều lịch sử phát triển lại với nhau
+                     +  git merge bugFix                       : kết hợp nhánh nào vào nhánh hiện tại
+	    	            +  git branch                             : kiểm tra các nhánh
+   rebase            :  Reapply commits on top of another base tip
+   reset             :  Reset current HEAD to the specified state
+   Revert  	         :  Hoàn tác commit trước đó nhưng copy vào commit tiếp theo
+			            +  git revert pushed : copy commit trước đó và commit 1 lần nữa (tạo thành commit sau commit hiện tại)
+			            +  git revert c0 : lấy commit c0 thành commit hiện tại 
+   switch            :  Switch branches
+   tag               :  Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows) <hợp tác>
+   fetch             :  Download objects and refs from another repository
+   pull              :  Fetch from and integrate with another repository or a local branch
+   push              :  Update remote refs along with associated objects

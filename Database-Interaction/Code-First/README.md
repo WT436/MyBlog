@@ -1,0 +1,3 @@
+# Chuẩn bị
+
+- Microsoft.EntityFrameworkCore
