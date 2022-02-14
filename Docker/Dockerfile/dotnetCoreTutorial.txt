@@ -1,0 +1,2 @@
+b1 : tạo mới 1 file tên là Dockerfile
+b2 : tạo 1 file hủy : .dockerignore
