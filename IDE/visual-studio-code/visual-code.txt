@@ -1,0 +1,47 @@
+1. Hướng dẫn cài đặt với file setting.json
+Cho anh em nào chưa biết, thì ngoài cài đặt trực tiếp bằng GUI của VSCode, thì ae có thể sửa thằng trong file settings.json
+
+Có 2 cách để mở file setting.json:
+
+Vào phần cài đặt VSCode -> chọn Open Setting (JSON) bên gốc phải màn hình.
+Mở command Ctrl + Shf + P, gõ Open Setting (JSON).
+
+Fira Font và Font Ligatures
+"editor.fontFamily": "Fira Code", "editor.fontLigatures": true
+
+2. Zoom bằng chuột (Mouse Wheel Zoom)
+"editor.mouseWheelZoom": true
+
+Ẩn bớt folder, file (Exclude Folder, Files)
+ "files.exclude": 
+    {
+        "**/.git": true,
+        "**/.next": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/node_modules/": true,
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+	
+
+Snippet :
+B1: Mở cài đặt góc phải, chọn User Snippet hoặc dùng tổ hợp phím Ctrl+U Ctrl+S.
+
+B2: Chọn loại snippet (có 2 loại là Local chỉ dùng cho dự án hiện tại và Global là cho mọi dự án).
+
+B3: Thêm 1 snippet theo cấu trúc như vd sau:
+
+{
+	"region": { 
+		"prefix": "#r", 
+		"body": [ 
+			"//#region ${1:name} ",
+			" //#endregion"
+		],
+		"description": "region"
+	},
+}
