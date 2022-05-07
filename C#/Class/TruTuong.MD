@@ -1,8 +1,8 @@
-Lớp trừu tượng
+## Lớp trừu tượng < abstract class >
 
-Mỗi lớp con của lớp Window nên thực thi một phương thức DrawWindow() cho riêng
+Ví dụ : Giả sử mỗi lớp kế thừa của lớp Window nên thực thi một phương thức DrawWindow() cho riêng
 mình. Tuy nhiên điều này không thực sự đòi hỏi phải thực hiện một cách bắt buộc. Để
-yêu cầu các lớp con (lớp dẫn xuất) phải thực thi một phương thức của lớp cơ sở, chúng
+yêu cầu các lớp kế thừa phải thực thi một phương thức của lớp cơ sở, chúng
 ta phải thiết kế một phương thức một cách trừu tượng.
 
 Một phương thức trừu tượng không có sự thực thi. Phương thức này chỉ đơn giản tạo ra

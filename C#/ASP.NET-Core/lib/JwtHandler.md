@@ -1,4 +1,5 @@
 -- Dtos
+
 ```c#
 public class ExternalClientJsonConfiguration
     {
@@ -18,7 +19,7 @@ public class ExternalClientJsonConfiguration
         /// <summary>
         /// Tên tài khoản
         /// </summary>
-        public string Account_User { get; set; } 
+        public string Account_User { get; set; }
         /// <summary>
         /// Email của tài khoản
         /// </summary>
@@ -35,7 +36,9 @@ public class ExternalClientJsonConfiguration
         public long ExpiresAt { get; set; }
     }
 ```
+
 -- class
+
 ```c#
 public interface IJwtHandler
     {
@@ -150,7 +153,7 @@ public interface IJwtHandler
     {
         #region Create a token
         /// <summary>
-        /// lấy thông tin tài khoản và khởi tạo token 
+        /// lấy thông tin tài khoản và khởi tạo token
         /// </summary>
         /// <returns></returns>
         public string GenerateToken(JwtCustomClaims infoToken)
@@ -180,7 +183,7 @@ public interface IJwtHandler
 
         #region Validating A Token
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="token"></param>
         /// <returns></returns>
@@ -215,7 +218,7 @@ public interface IJwtHandler
 
         #region Read claims
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="token"></param>
         /// <param name="claimType"></param>
@@ -229,15 +232,90 @@ public interface IJwtHandler
             return stringClaimValue;
         }
         #endregion
-      
+
     }
 ```
--- cách dùng 
+
+-- cách dùng
+
+```json
+"ExternalClientServer": {
+    "ReferralUrl": "Account.vn",
+    "Issuer": "Hainam.com",
+    "Audience": "1",
+    "ReferralId": "8c51b38a-f773-4810-8ac5-63b5fb9ca217",
+    "RsaPrivateKey": "MIIEogIBAAKCAQEAn4XOc6lV0LZ5j+dBCRH2eiDj6fGlzMIJ7gmSUBF++xLLLAP/EspquIMpTSRJFgrg29euExYNVA+DKDn45ckAXnWar/1JLQdWfz+8ybdUH8mAt9omZStvjfVbqS1/kyBBOymo2LZ3BZCuVRR/kiZ3xuwY06VhgKOcCJR8YQjW5hX+U9Ovl0fLlE4C1a32GBGkcNU7GTrS4aBlciAtALmRLbU+0rr+XJECYWb7/SFfYaM0qAa9kw6FYCfatXclHm2qLaOo8mwlsAdQPpCVyW7R/RrdLgLLkkmzeJacLgjFTLyb894t0Y9/4fHy+L+FAmC+Rceka9ZpCb+/V6IcAZDj+QIDAQABAoIBAHugkV0lsLHtmMwjZk2HNEN11evqMJo9DsEBffi7dnNSH07fUgDYClkwnQOByXpht93oiqmT/4RT+UtlkjVSzwxljBoz61AQTcKUPNT/VRzFZxIU6IijXvLfYcf80M/OwX7+TDKXRipz9AdPuYYkddMeCieMFcJCCZzEppf058arr47r+EpQ2mrD/jbtBbsBi/yJdGtk+qdLROWDyywKdUo8xbbD0YzIPQptqCqrvNSfi+O/6eTK3KXmycNP+BQlJ7EWS0VSZeWyzWq7yq0mRqbHM9qFWWrKuQvJtbcU1YysBjMLv2//3zZMaI7mATrdioCA+S7X7s3vwRo3TPeNzVkCgYEAy/OxIPhwMYD4qwGSbkiKw2IZkLFXg10SHmNciA87it32wON1e9kFtaF/8e47yvt2MHagGli95zOne0QZN4eF0+HJcbXA5s3jA/S9r9VNS75pFsIWAtik8hc4oPKyils+rBCT+w1i+SeiZP1UgBygEQhjj3j7zEUWLeIgWMVE1hMCgYEAyDuGMFqrqpb0kCzXiGAB6MyTeqOZXkZML/gHWmMamhI9xXraAeQO3T5NGodIAqkHgN/62zZrgYfYgqJXJZZa46RXUNV5ZoAIW9M6Y9OvtsnRulDnDGgMqxbbTrTOil8xSfa8XsKGMC8T5H+VZdl4bm002u9cQylLoXo4/ncvT0MCgYAMAl50tYxNre12jFImAkmBdb5Roc+oYYuWlH03WcZEyAsmkn4xe7b1Wfwhr8h/jE0KT4Hf60fLXGRJQtpFRcqgjlQBSRWBwa/TZM7ikqnJgv3HJEiNhFo6Exn3iDLxKKxJD3TXPJOOXkIWtkAKhyT5u8e5BAO3pH3I197Vu0/xVwKBgGmnZv4aydxAvRlaX/w41KkXUXZz3ths9YSWNqMOChpkJ64NTf2Tbfh2CE9INMoakLgC96Y2B/IYUTlVGfDebmUR8XTYv69DPaXeRkAokd48jernB5N3T7/zVpMoOpeu9R4XEHxb3lyMas22OIm+f5qdCze+94sEvkCdcndrQk5rAoGAUt/wU5qw3dOfEKODUSqRsoa3tJPx0SEiaOKq2sibZ1mlG/urfMpXqAbFZavBQUG7TBGzaA4QJsS+dmwaJIP9JfxuzL21mzK+Tefc7uyFhjApJYhvFfoukveQeDaPBD9iMFC8OpKthsoEInVGN+GGLWvDZSwRyB4ce5SzOl+kQ9s=",
+    "RsaPublicKey": "MIIBCgKCAQEAn4XOc6lV0LZ5j+dBCRH2eiDj6fGlzMIJ7gmSUBF++xLLLAP/EspquIMpTSRJFgrg29euExYNVA+DKDn45ckAXnWar/1JLQdWfz+8ybdUH8mAt9omZStvjfVbqS1/kyBBOymo2LZ3BZCuVRR/kiZ3xuwY06VhgKOcCJR8YQjW5hX+U9Ovl0fLlE4C1a32GBGkcNU7GTrS4aBlciAtALmRLbU+0rr+XJECYWb7/SFfYaM0qAa9kw6FYCfatXclHm2qLaOo8mwlsAdQPpCVyW7R/RrdLgLLkkmzeJacLgjFTLyb894t0Y9/4fHy+L+FAmC+Rceka9ZpCb+/V6IcAZDj+QIDAQAB"
+  },
+```
 
 ```c#
-private static IJwtHandler _jwtHandler;
-private static IOptions<ExternalClientJsonConfiguration> options;
-private static readonly ExternalClientJsonConfiguration externalClientJsonConfiguration = new ExternalClientJsonConfiguration();
+ public class TokenToJWT
+    {
+        private static IJwtHandler _jwtHandler;
+        private static IOptions<ExternalClientJsonConfiguration> options;
+        private static readonly ExternalClientJsonConfiguration externalClientJsonConfiguration = new ExternalClientJsonConfiguration();
 
-_jwtHandler = new JwtHandler(options);
+        public TokenToJWT()
+        {
+            ReadFileJsonForJWT();
+            SettingJWT();
+        }
+        /// <summary>
+        /// Đọc dữ liệu token
+        /// </summary>
+        /// <param name="Token"></param>
+        /// <returns></returns>
+        public async Task<JwtCustomClaims> DecryptionTokenAsync(string Token)
+        {
+            return _jwtHandler.ReadFullInfomation(Token);
+        }
+        /// <summary>
+        /// Đọc dữ liệu token
+        /// </summary>
+        /// <param name="Token"></param>
+        /// <returns></returns>
+        public JwtCustomClaims DecryptionToken(string Token)
+        {
+            return _jwtHandler.ReadFullInfomation(Token);
+        }
+        /// <summary>
+        /// Tạo mới token
+        /// </summary>
+        /// <param name="userAccount"></param>
+        /// <returns></returns>
+        public JwtResponse CreateTokenAccountUserJWT(JwtCustomClaims jwtCustomClaims)
+        {
+            return _jwtHandler.CreateToken(jwtCustomClaims);
+        }
+        /// <summary>
+        /// Đọc file json để lấy key cho sự giải nén JWT
+        /// </summary>
+        private void ReadFileJsonForJWT()
+        {
+            if (externalClientJsonConfiguration.Issuer == null)
+            {
+                var configurationBuilder = new ConfigurationBuilder()
+                     .SetBasePath(Directory.GetCurrentDirectory())
+                     .AddJsonFile("appsettings.json")
+                     .Build();
+                configurationBuilder.GetSection("ExternalClientServer")
+                    .Bind(externalClientJsonConfiguration);
+
+                options = Options.Create(externalClientJsonConfiguration);
+            }
+        }
+
+        /// <summary>
+        /// Cài đặt để sử dụng file giải nén JWT
+        /// </summary>
+        private void SettingJWT()
+        {
+            if (_jwtHandler == null)
+            {
+                _jwtHandler = new JwtHandler(options);
+            }
+        }
+
+    }
 ```
