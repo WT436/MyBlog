@@ -28,6 +28,10 @@ networks:
     driver: bridge
     
 ```
+- Khởi động docker. di chuyển cmd về folder chứa file docker-compose.yaml
 
+- Run lệnh : docker-compose up để cài đặt và chạy rabbit
+
+- 
 
 ![image](https://user-images.githubusercontent.com/63473793/123521965-4432ce80-d6e4-11eb-9ec8-22a38c443ccf.png)
